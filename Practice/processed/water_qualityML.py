@@ -6,9 +6,9 @@ import numpy as np
 '''pd.set_option("display.max_columns", 120)
 pd.set_option("display.max_rows", 120)'''
 ''' Bring in the file'''
-rawdata_df = pd.read_csv('water-qual-processed dataNS01EJ0157-2016-present.csv')
+#rawdata_df = pd.read_csv('water-qual-processed dataNS01EJ0157-2016-present.csv')
 ''' making Datetime object'''
-rawdata_df ['DATE'] = pd.to_datetime(rawdata_df['DATE'],format='mixed')
+'''rawdata_df ['DATE'] = pd.to_datetime(rawdata_df['DATE'],format='mixed')
 rawdata_df['YEAR'] = rawdata_df['DATE'].dt.year
 rawdata_df['MONTH'] = rawdata_df['DATE'].dt.month
 rawdata_df['DAY'] = rawdata_df['DATE'].dt.day
@@ -17,8 +17,12 @@ variable_df = rawdata_df[rawdata_df['VARIABLE'] == selected_variable]
 
 variablecleaned_df =variable_df.dropna()
 excel_file_path = 'turbidty_2016-2017output.xlsx'
-variablecleaned_df.to_excel(excel_file_path,index=False)
+variablecleaned_df.to_excel(excel_file_path,index=False)'''
 
+'''Data Analysis'''
+
+stn1_df = pd.read_excel('NS01EJ0157-2016-present_final')
+print(stn1_df)
 
 
 
