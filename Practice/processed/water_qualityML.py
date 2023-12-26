@@ -47,7 +47,7 @@ stn1_df = stn1_df.dropna()
 
 #stn1_df.set_index('DATE',inplace=True)
 #sns.lineplot(stn1_df,x=stn1_df.index,y='')
-sns.barplot(stn1_df,x="YEAR",y='OXYGEN DISSOLVED (MG/L)',)
+sns.barplot(stn1_df,x="YEAR",y='PH',hue='MONTH',gap=0.2)
 plt.show()
 
 
