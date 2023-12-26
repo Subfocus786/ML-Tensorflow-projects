@@ -19,10 +19,37 @@ variablecleaned_df =variable_df.dropna()
 excel_file_path = 'turbidty_2016-2017output.xlsx'
 variablecleaned_df.to_excel(excel_file_path,index=False)'''
 
-'''Data Analysis'''
+'''DATA ANALYSIS'''
+'''
+stn1_df = pd.read_excel('NS01EJ0157-2016-present_final.xlsx')
+stn1_df = stn1_df.reset_index()
+plt.figure(figsize=(10,6))
+stn1_df['DATE'] = pd.to_datetime(stn1_df['DATE'])
+stn1_df.set_index('DATE',inplace=True)
+sns.lineplot(x=stn1_df.index,y='OXYGEN DISSOLVED (MG/L)',data=stn1_df)
+y_value = "PH"
+#sns.lineplot(x=stn1_df.index,y=y_value,data=stn1_df)
+plt.title("Parameter vs time")
+plt.xlabel('Date')
+plt.ylabel('Parameter')
+plt.grid(True)
+plt.show()
+stn1_df = stn1_df.reset_index()
+'''
+stn1_df = pd.read_excel('NS01EJ0157-2016-present_final.xlsx')
+#describe_df = stn1_df.describe()
+#describe_df.to_excel('describe_df.xlsx')
+stn1_df['DATE'] = pd.to_datetime(stn1_df['DATE'])
+#stn1_reset = stn1_df.reset_index(drop=False)
+#print(stn1_df.isna().any().any())
+stn1_df = stn1_df.dropna()
+#print(stn1_df.isna().any().any())
 
-stn1_df = pd.read_excel('NS01EJ0157-2016-present_final')
-print(stn1_df)
+#stn1_df.set_index('DATE',inplace=True)
+#sns.lineplot(stn1_df,x=stn1_df.index,y='')
+sns.barplot(stn1_df,x="YEAR",y='OXYGEN DISSOLVED (MG/L)',)
+plt.show()
+
 
 
 
