@@ -66,7 +66,7 @@ def failure(n): # converting past faliurs to a catogorical Dtype
 for col in fail_col:
     X[col] = X[col].apply(failure)
 from sklearn.model_selection import train_test_split
-train_df, test_df = train_test_split(X, test_size=0.25, random_state=42) # intitialising validation/testing data frames, specific size and always a stable seed (random number genrator)
+train_df, test_df = train_test_split(X, test_size=0.50, random_state=42) # intitialising validation/testing data frames, specific size and always a stable seed (random number genrator)
 input_cols = list(train_df.columns [1:-1]) # defining input columns , removing target columbs
 target_col = 'G3' #target columb
 # making new data frame for training inputs and targets using speficic columbs and .copy()
@@ -105,6 +105,7 @@ test_inputs[encoded_cols] = encoder.transform(test_inputs[categorical_cols])
 X_train = train_inputs[numeric_cols + encoded_cols]
 X_test = test_inputs[numeric_cols + encoded_cols]
 
+#print(X_test)
 
 #print (X_test)
 ''' getting a random forest class'''
@@ -126,7 +127,7 @@ X_test = test_inputs[numeric_cols + encoded_cols]
 #sns.barplot(data=importance_df.head(10), x='importance', y='feature') # plotting this
 #plt.show()
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
 def plot_error_vs_estimators(X_train, y_train, X_test, y_test, max_estimators=100, step=10):
     """
 
@@ -146,7 +147,7 @@ def plot_error_vs_estimators(X_train, y_train, X_test, y_test, max_estimators=10
 
     for n_estimators in estimator_values:
         # Create and train the RandomForestClassifier
-        model = RandomForestClassifier(n_estimators=n_estimators,max_depth=2,random_state=42)
+        model = RandomForestClassifier(n_estimators=n_estimators,random_state=42)
         model.fit(X_train, y_train)
 
         # Make predictions on training and test sets
@@ -203,4 +204,36 @@ def HP_tuning(param1_values,param2_values):
     plt.xticks(np.arange(len(param2_values)), param2_values)
     plt.yticks(np.arange(len(param1_values)), param1_values)
     plt.show()
-plot_error_vs_estimators(X_train,train_targets, X_test, test_targets, max_estimators=10, step=1)
+#plot_error_vs_estimators(X_train,train_targets, X_test, test_targets, max_estimators=1000, step=25)
+
+np.random.seed(42)
+X = np.random.rand(100, 5)
+y = np.random.randint(2, size=100)
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
+
+# Train a Random Forest model
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
+
+# Make predictions with the RF model
+y_pred_rf = rf_model.predict(X_test)
+
+# Create a baseline model that always predicts "fail"
+y_pred_baseline = np.ones_like(y_test)  # Assuming 1 represents "fail"
+
+# Evaluate the models
+print("Random Forest Model:")
+print("Accuracy:", accuracy_score(y_test, y_pred_rf))
+print("Confusion Matrix:")
+print(confusion_matrix(test_targets, y_pred_rf))
+print("Classification Report:")
+print(classification_report(test_targets, y_pred_rf))
+
+print("\nBaseline Model (Always predicts 'fail'):")
+print("Accuracy:", accuracy_score(y_test, y_pred_baseline))
+print("Confusion Matrix:")
+print(confusion_matrix(y_test, y_pred_baseline))
+print("Classification Report:")
+print(classification_report(y_test, y_pred_baseline))
