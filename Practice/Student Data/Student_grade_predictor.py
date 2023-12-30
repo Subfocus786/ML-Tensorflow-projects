@@ -109,12 +109,12 @@ X_test = test_inputs[numeric_cols + encoded_cols]
 
 #print (X_test)
 ''' getting a random forest class'''
-#from sklearn.ensemble import RandomForestClassifier
-#base_model = RandomForestClassifier(n_estimators=100,n_jobs=-1, random_state=42) #making a random forest in object
-#base_model.fit(X_train, train_targets) # Fitting
-#base_model.score(X_train, train_targets) #scoring training data
-#base_model.score(X_test, test_targets) # scoring validations
-#train_probs = base_model.predict_proba(X_train) # .predict_proba methods()
+from sklearn.ensemble import RandomForestClassifier
+base_model = RandomForestClassifier(n_estimators=100,n_jobs=-1, random_state=42) #making a random forest in object
+base_model.fit(X_train, train_targets) # Fitting
+base_model.score(X_train, train_targets) #scoring training data
+base_model.score(X_test, test_targets) # scoring validations
+train_probs = base_model.predict_proba(X_train) # .predict_proba methods()
 
 ''' acsessing individual desicion tress '''
 #base_model.estimators_[0] # .estimator function

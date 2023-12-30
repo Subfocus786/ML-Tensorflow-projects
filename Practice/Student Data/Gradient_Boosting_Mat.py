@@ -2,12 +2,13 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-from xgboost import X
+from xgboost import XGBClassifier
+from sklearn.metrics import confusion_matrix,classification_report
 mat_raw_df = pd.read_csv('mat2.csv')
 X = mat_raw_df
 def pass_fail(score): #defining a pass fail function
     threshold=10
-    return 'pass' if score > threshold else 'fail'  # 1= pass , 0=fail
+    return 1 if score > threshold else 0  # 1= pass , 0=fail
 
 grade_cols=['G1','G2','G3']
 for col in grade_cols:
@@ -61,6 +62,25 @@ X_test = test_inputs[numeric_cols + encoded_cols]
 from xgboost import XGBClassifier
 xgb_model = XGBClassifier(random_state=42)
 xgb_model.fit(X_train,train_targets)
+
+y_predict_xgb = xgb_model.predict(X_test)
+
+y_pred_baseline = np.ones_like(test_targets)
+print("\nXGBoost Model:")
+print("Accuracy:", accuracy_score(test_targets, y_predict_xgb))
+print("Confusion Matrix:")
+print(confusion_matrix(test_targets, y_predict_xgb))
+print("Classification Report:")
+print(classification_report(test_targets, y_predict_xgb))
+
+print("\nBaseline Model (Always predicts 'fail'):")
+print("Accuracy:", accuracy_score(test_targets, y_pred_baseline))
+print("Confusion Matrix:")
+print(confusion_matrix(test_targets, y_pred_baseline))
+print("Classification Report:")
+print(classification_report(test_targets, y_pred_baseline))
+
+
 
 
 
