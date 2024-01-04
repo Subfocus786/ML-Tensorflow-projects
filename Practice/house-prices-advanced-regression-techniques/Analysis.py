@@ -8,6 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import mean_squared_error
 from xgboost import XGBRegressor
+
 raw_df = pd.read_csv('train.csv')
 #print(raw_df)
 missing_var =raw_df.isna().sum()
@@ -87,11 +88,13 @@ def optimize_xgb_hyper (X_train,y_train,X_test,y_test):
 
     # Define the hyperparameter grid to search
     param_grid = {
-        'n_estimators': [50,100,150],
-        'learning_rate': [0.01,0.05,0.2],
-        'max_depth': [2,3, 4],
-        'subsample': [0.5,0.8],
-        'colsample_bytree': [0.2,0.5]
+        'n_estimators': [35,100,200,300,400,500,550,600,700],
+        'learning_rate': [0.2,0.22],
+        'n_jobs':[-1],
+        'gamma':[0.1,0.2,0.3],
+        'max_depth': [4,5],
+        'subsample': [0.1,0.5,0.8],
+        'colsample_bytree': [0.6,0.7,0.8,0.9]
     }
 
     # Create the Grid Search Cross-Validation object
@@ -111,11 +114,12 @@ def optimize_xgb_hyper (X_train,y_train,X_test,y_test):
     y_pred = final_model.predict(X_test)
 
     # Calculate the Mean Squared Error on the test set
-    mse = mean_squared_error(y_test, y_pred)
+    mse = mean_squared_error(y_test, y_pred,squared=False)
+
 
     return best_params, final_model, mse
 
-print(optimize_xgb_hyper(X,y_train,X_test,y_test))
+print(optimize_xgb_hyper(X,y_train,x_test,y_test))
 
 
 
