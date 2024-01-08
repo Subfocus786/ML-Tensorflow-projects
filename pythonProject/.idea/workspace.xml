@@ -4,58 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e59e59c-1507-4230-a57e-50a160754d5b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ffca063f-979a-4e0d-80c4-4a21d331c901" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Practice/house-prices-advanced-regression-techniques/Kaggle_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/house-prices-advanced-regression-techniques/Lasso_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/house-prices-advanced-regression-techniques/XGB_boost_hyperparametertuning.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/house-prices-advanced-regression-techniques/optimise_xgb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Practice/house-prices-advanced-regression-techniques/Analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Practice/house-prices-advanced-regression-techniques/Analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2aYaFgbBWlefhrjqNJGY9I525Nj" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2aY6GAUiFQA8RkrBsuuQHOsr92q" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.Reactor_math.executor": "Run",
-    "Python.Reactor_models.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Reactor__modelling",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "git-widget-placeholder": "master"
   }
 }]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-7a29c1521ef0-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.11799.298" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9e59e59c-1507-4230-a57e-50a160754d5b" name="Changes" comment="" />
-      <created>1704497865084</created>
+      <changelist id="ffca063f-979a-4e0d-80c4-4a21d331c901" name="Changes" comment="" />
+      <created>1704483066568</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1704497865084</updated>
+      <updated>1704483066568</updated>
     </task>
     <servers />
   </component>
